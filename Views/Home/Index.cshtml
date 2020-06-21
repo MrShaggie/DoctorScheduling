@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>Welcome to Hospital</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @if (User.IsInRole("Patient"))
+        {
+            <img src="~/Media/12354.png" />
+            <h2>Find Doctors</h2>
+            <p>
+                Get the best in health care with the help of our highly qualified doctors. Click the button below to get started.
+            </p>
+            <p></p>
+            <p><a class="btn btn-default" href="@Url.Action("Index", "Doctor")">Find Doctors &raquo;</a></p>
+        }
+        else
+        {
+            <img src="~/Media/12354.png" />
+            <h2>View Your Appointments</h2>
+            <p>
+                Provide the best possible health care with the help of our facilities.
+            </p>
+            <p></p>
+        }
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@model ProjectScheduling.Models.EditUserViewModel
+
+@{
+    ViewBag.Title = "My Appointments";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Patient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            Gender
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+                
+        <dt>
+            @Html.DisplayNameFor(model => model.Appointments)
+        </dt>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Doctor's Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+                @foreach (var item in Model.Appointments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Doctor.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*Use the browser's internal history. Otherwise Redirectin to all Appointments*@
+    <a href="javascript:void(0);" onclick="history.go(-1);">Go Back</a>
+</p>
